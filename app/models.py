@@ -1,4 +1,14 @@
+from datetime import datetime
 from app import db
+
+# initialize db using flask-migrate
+## flask db init
+
+# create migration using flask-migrate
+## flask db migrate -m "comment if needed i.e. added user table"
+
+# apply db changes upgrade | downgrade
+## flask db upgrade or downgrade
 
 #User Class
 class User(db.Model):
@@ -9,3 +19,12 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return '<Post {}>'.format(self.body)
