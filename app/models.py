@@ -1,14 +1,6 @@
 from datetime import datetime
 from app import db
 
-# initialize db using flask-migrate
-## flask db init
-
-# create migration using flask-migrate
-## flask db migrate -m "comment if needed i.e. added user table"
-
-# apply db changes upgrade | downgrade
-## flask db upgrade or downgrade
 
 #User Class
 class User(db.Model):
@@ -28,3 +20,15 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+
+
+#Code commentary
+# initialize db using flask-migrate
+## flask db init
+
+# create migration using flask-migrate
+## flask db migrate -m "comment if needed i.e. added user table"
+
+# apply db changes upgrade | downgrade
+## flask db upgrade or downgrade
